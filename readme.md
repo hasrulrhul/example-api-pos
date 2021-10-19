@@ -1,5 +1,5 @@
 # Clone Project
-git@github.com:hasrulrhul/base-project-go.git
+git@github.com:hasrulrhul/api-pos.git
 
 # inisalisasi project
 go mod init api-pos
