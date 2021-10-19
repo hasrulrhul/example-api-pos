@@ -2,7 +2,7 @@
 git@github.com:hasrulrhul/base-project-go.git
 
 # inisalisasi project
-go mod init base-project-go
+go mod init api-pos
 
 # copy .env.example and rename .env
 setting your config database
