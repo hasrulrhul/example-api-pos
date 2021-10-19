@@ -1960,6 +1960,111 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "report",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-go}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_date",
+									"value": "2021-09-01",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2021-10-21",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go}}/transaction-purchases/report",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"transaction-purchases",
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "report per Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-go}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_date",
+									"value": "2021-09-01",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2021-10-21",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go}}/transaction-purchases/report/1",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"transaction-purchases",
+								"report",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -2404,6 +2509,125 @@
 							"path": [
 								"transaction-sales",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "report",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-go}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_date",
+									"value": "2021-09-01",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2021-10-21",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go}}/transaction-sales/report",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"transaction-sales",
+								"report"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2020-10-20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "report per product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-go}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_date",
+									"value": "2021-09-01",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2021-10-21",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go}}/transaction-sales/report/1",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"transaction-sales",
+								"report",
+								"1"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2020-10-20",
+									"disabled": true
+								}
 							]
 						}
 					},

@@ -106,31 +106,20 @@ func DeleteTrxPurchase(c *gin.Context) {
 }
 
 func ReportTrxPurchase(c *gin.Context) {
-	id := c.Params.ByName("id")
-	var trxPurchase models.TrxPurchase
-	err := config.DB.First(&trxPurchase, id).Error
-	if err != nil {
-		c.JSON(http.StatusBadRequest, "not found")
-		return
-	}
-	if err := config.DB.Delete(&trxPurchase).Error; err != nil {
-		c.JSON(http.StatusBadRequest, "failed")
-	} else {
-		c.JSON(http.StatusOK, "deleted data successfully")
-	}
+	startDate := c.PostForm("start_date")
+	endDate := c.PostForm("end_date")
+
+	var trxPurchase []models.TrxPurchase
+	config.DB.Where("DATE(created_at) >= ?", startDate).Where("DATE(created_at) <= ?", endDate).Find(&trxPurchase)
+	c.JSON(http.StatusOK, service.Response(trxPurchase, c, "", 0))
 }
 
 func ReportTrxPurchasePerProduct(c *gin.Context) {
-	id := c.Params.ByName("id")
-	var trxPurchase models.TrxPurchase
-	err := config.DB.First(&trxPurchase, id).Error
-	if err != nil {
-		c.JSON(http.StatusBadRequest, "not found")
-		return
-	}
-	if err := config.DB.Delete(&trxPurchase).Error; err != nil {
-		c.JSON(http.StatusBadRequest, "failed")
-	} else {
-		c.JSON(http.StatusOK, "deleted data successfully")
-	}
+	productID := c.Params.ByName("id")
+	startDate := c.PostForm("start_date")
+	endDate := c.PostForm("end_date")
+
+	var TrxDetailPurchase []models.TrxDetailPurchase
+	config.DB.Preload("Product").Where("product_id = ?", productID).Where("DATE(created_at) >= ?", startDate).Where("DATE(created_at) <= ?", endDate).Find(&TrxDetailPurchase)
+	c.JSON(http.StatusOK, service.Response(TrxDetailPurchase, c, "", 0))
 }

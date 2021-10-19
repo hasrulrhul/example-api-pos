@@ -124,8 +124,8 @@ func SetupRouter() *gin.Engine {
 				trxpurchase.GET("/:id", controllers.ShowTrxPurchase)
 				trxpurchase.PUT("/payment/:id", controllers.UpdateTrxPurchase)
 				trxpurchase.DELETE("/:id", controllers.DeleteTrxPurchase)
-				// trxpurchase.GET("/report", controllers.ReportTrxPurchase)
-				// trxpurchase.GET("/report/:producID", controllers.ReportTrxPurchasePerProduct)
+				trxpurchase.POST("/report", controllers.ReportTrxPurchase)
+				trxpurchase.POST("/report/:id", controllers.ReportTrxPurchasePerProduct)
 
 			}
 
@@ -145,8 +145,8 @@ func SetupRouter() *gin.Engine {
 				trxsale.GET("/:id", controllers.ShowTrxSale)
 				trxsale.PUT("/payment/:id", controllers.UpdateTrxSale)
 				trxsale.DELETE("/:id", controllers.DeleteTrxSale)
-				// trxpurchase.GET("/report", controllers.ReportTrxSale)
-				// trxpurchase.GET("/report/:producID", controllers.ReportTrxSalePerProduct)
+				trxsale.POST("/report", controllers.ReportTrxSale)
+				trxsale.POST("/report/:id", controllers.ReportTrxSalePerProduct)
 			}
 
 		}
